@@ -1,18 +1,10 @@
 package com.argot.start;
 
+import com.argot.*;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-
-import com.argot.TypeException;
-import com.argot.TypeInputStream;
-import com.argot.TypeLibrary;
-import com.argot.TypeMap;
-import com.argot.TypeMapperCore;
-import com.argot.TypeMapperDynamic;
-import com.argot.TypeMapperError;
-import com.argot.TypeOutputStream;
-import com.argot.compiler.ArgotCompilerLoader;
 
 public class StartHere 
 {
@@ -40,7 +32,7 @@ public class StartHere
 	{
 		// Create the type library and compile/bind the switch data types.
 		typeLibrary = new TypeLibrary( );
-		ArgotCompilerLoader loader = new ArgotCompilerLoader("light.argot")
+        ResourceDictionaryLoader loader = new ResourceDictionaryLoader("light.dictionary")
 		{
 			public void bind( TypeLibrary library )
 			throws TypeException
