@@ -16,12 +16,6 @@
 
 
     <build>
-        <sourceDirectory>${project.basedir}/src</sourceDirectory>
-        <resources>
-            <resource>
-                <directory>${project.basedir}/src/com/argot/start</directory>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <artifactId>exec-maven-plugin</artifactId>
