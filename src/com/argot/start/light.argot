@@ -1,0 +1,19 @@
+/*
+  Example Argot dictionary definition file.
+  Demonstrates the simple method of defining a cluster and two sequences.
+*/
+
+
+cluster light;
+
+definition light.colour 1.0:
+{
+	@red #uint8;
+	@green #uint8;
+	@blue #uint8;	
+};
+
+definition light.set_colour 1.0:
+{
+	@colour #light.colour;
+};
