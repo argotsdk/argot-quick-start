@@ -71,12 +71,47 @@ public class StartHere
 		ByteArrayInputStream in = new ByteArrayInputStream(data);
 		TypeInputStream typeIn = new TypeInputStream( in, typeMap );
 		SetColour readSetColour = (SetColour) typeIn.readObject( SetColour.TYPENAME );
-		
+
 		System.out.println("\nValues read into SetColour object");
 		System.out.println("Read red:" + readSetColour.colour.red );
 		System.out.println("Read green:" + readSetColour.colour.green );
 		System.out.println("Read blue:" + readSetColour.colour.blue );
 	}
+
+
+
+    public byte[] writeColour(final Colour c) throws TypeException, IOException {
+
+        TypeMap typeMap = new TypeMap( typeLibrary, new TypeMapperDynamic(new TypeMapperCore(new TypeMapperError())));
+        // Prepare the stream.
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        TypeOutputStream typeOut = new TypeOutputStream( out, typeMap);
+
+        SetColour setColour = new SetColour(c);
+        typeOut.writeObject( SetColour.TYPENAME, setColour );
+
+        out.close();
+
+        System.out.println("\nBytes written to output stream");
+        return out.toByteArray();
+    }
+
+
+    public Colour readColour(final byte[] data) throws IOException, TypeException {
+        // Read the object from the stream.
+        TypeMap typeMap = new TypeMap( typeLibrary, new TypeMapperDynamic(new TypeMapperCore(new TypeMapperError())));
+
+        ByteArrayInputStream in = new ByteArrayInputStream(data);
+        TypeInputStream typeIn = new TypeInputStream( in, typeMap);
+        SetColour readSetColour = (SetColour) typeIn.readObject( SetColour.TYPENAME );
+
+        System.out.println("\nValues read into SetColour object");
+        System.out.println("Read red:" + readSetColour.colour.red );
+        System.out.println("Read green:" + readSetColour.colour.green );
+        System.out.println("Read blue:" + readSetColour.colour.blue );
+        return readSetColour.colour;
+    }
 	
 	
 	
