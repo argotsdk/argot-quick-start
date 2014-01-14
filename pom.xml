@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.argot</groupId>
+    <artifactId>argot-start</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>argot-light</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <build>
+        <sourceDirectory>${project.basedir}/src</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/com/argot/start</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>exec-maven-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <configuration>
+                    <mainClass>com.argot.start.StartHere</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.argot</groupId>
+            <artifactId>argot</artifactId>
+            <version>1.3.b3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/argot-1.3.b3.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.argot</groupId>
+            <artifactId>argot-compiler</artifactId>
+            <version>1.3.b3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/argot-compiler-1.3.b3.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr-runtime</artifactId>
+            <version>3.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/antlr-runtime-3.0.1.jar</systemPath>
+        </dependency>
+    </dependencies>
+</project>
