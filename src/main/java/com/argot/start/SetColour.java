@@ -2,8 +2,9 @@ package com.argot.start;
 
 import com.argot.auto.ArgotMarshaller;
 import com.argot.auto.ArgotTag;
+import com.argot.auto.TypeAnnotationMarshaller;
 
-@ArgotMarshaller(ArgotMarshaller.Marshaller.ANNOTATION)
+@ArgotMarshaller(TypeAnnotationMarshaller.class)
 public class SetColour 
 {
 	public static final String TYPENAME = "light.set_colour";
